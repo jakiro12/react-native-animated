@@ -1,50 +1,25 @@
-# Welcome to your Expo app 👋
+# 📱 Animaciones Simples en React Native
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Este repositorio contiene una colección de **animaciones simples y reutilizables en React Native**.  
+La idea es ofrecer una **lista práctica de ejemplos** que puedas copiar y pegar directamente en tu proyecto.
 
-## Get started
+## 🎯 ¿Qué encontrarás aquí?
 
-1. Install dependencies
+- Animaciones de entrada y salida  
+- Efectos con `Animated` y `react-native-reanimated`  
+- Transiciones suaves entre vistas  
+- Efectos de pulsación, escalado, desvanecido, entre otros
 
-   ```bash
-   npm install
-   ```
+Cada animación incluye **código claro y comentado**, listo para ser usado o adaptado según tus necesidades.
 
-2. Start the app
+> 💡 Ideal para desarrolladores que buscan mejorar la experiencia de usuario con animaciones sin complicaciones.
 
-   ```bash
-   npx expo start
-   ```
+## 🚀 Cómo usar
 
-In the output, you'll find options to open the app in a
+1. Explora las carpetas o archivos según el tipo de animación.
+2. Copia el código que necesites.
+3. Pega y adapta dentro de tu proyecto React Native.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+¡Disfruta animando tu app! 🎨
