@@ -22,6 +22,12 @@ export default function Index() {
           >
           <Text style={styles.textTitle}>Pulse</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={styles.btnAnimation}
+          activeOpacity={0.7}
+          onPress={()=>router.push('/fragment/balls')}
+          >
+          <Text style={styles.textTitle}>Fragment Balls</Text>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
