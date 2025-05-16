@@ -28,6 +28,12 @@ export default function Index() {
           >
           <Text style={styles.textTitle}>Fragment Balls</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={styles.btnAnimation}
+          activeOpacity={0.7}
+          onPress={()=>router.push('/fadeText/fadeText')}
+          >
+          <Text style={styles.textTitle}>Fade Text</Text>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );

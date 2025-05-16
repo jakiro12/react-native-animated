@@ -26,6 +26,7 @@ const FragmentBalls = () => {
             duration: 1000,
             easing: Easing.linear,
             useNativeDriver: true,
+            delay:500,
           }),
           Animated.timing(position, {
             toValue: { x: 0, y: 0 },
