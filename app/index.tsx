@@ -34,6 +34,12 @@ export default function Index() {
           >
           <Text style={styles.textTitle}>Fade Text</Text>
         </TouchableOpacity>
+         <TouchableOpacity style={styles.btnAnimation}
+          activeOpacity={0.7}
+          onPress={()=>router.push('/paws/animalPaws')}
+          >
+          <Text style={styles.textTitle}>Animal Paws</Text>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
