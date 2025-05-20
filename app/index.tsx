@@ -1,4 +1,4 @@
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import styles from '../styles/index-styles'
 import { router } from "expo-router";
 export default function Index() {
@@ -6,6 +6,7 @@ export default function Index() {
     <View
       style={styles.container}      
     >
+      <StatusBar  backgroundColor="#00000088"/>
       <ScrollView 
         contentContainerStyle={styles.containerScroll}
         showsVerticalScrollIndicator={false}
@@ -40,6 +41,18 @@ export default function Index() {
           >
           <Text style={styles.textTitle}>Animal Paws</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={styles.btnAnimation}
+          activeOpacity={0.7}
+          onPress={()=>router.push('/fallingBalls/fallingBalls')}
+          >
+          <Text style={styles.textTitle}>Falling Balls</Text>
+        </TouchableOpacity>
+         <TouchableOpacity style={styles.btnAnimation}
+          activeOpacity={0.7}
+          onPress={()=>router.push('/floatBoat/floatBoat')}
+          >
+          <Text style={styles.textTitle}>Float Boat</Text>
+        </TouchableOpacity>         
       </ScrollView>
     </View>
   );

@@ -7,7 +7,7 @@ const FragmentBalls = () => {
     useRef(new Animated.ValueXY({ x: 0, y: 0 })).current,
     useRef(new Animated.ValueXY({ x: 0, y: 0 })).current,
     useRef(new Animated.ValueXY({ x: 0, y: 0 })).current,
-  ];
+  ]
 
   
   const targets = [ //Coordenadas de las posiciones finales
@@ -15,7 +15,7 @@ const FragmentBalls = () => {
     { x: 100, y: -80 }, 
     { x: -80, y: 80 },  
     { x: 80, y: 80 },   
-  ];
+  ]
 
   useEffect(() => {
     positions.forEach((position, index) => {

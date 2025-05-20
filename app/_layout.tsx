@@ -9,6 +9,9 @@ export default function RootLayout() {
         <Stack.Screen name="fragment/balls" options={{ headerShown: false,animation:'slide_from_right',animationDuration:600 }}  />
         <Stack.Screen name="fadeText/fadeText" options={{ headerShown: false,animation:'slide_from_right',animationDuration:600 }}  />
         <Stack.Screen name="paws/animalPaws" options={{ headerShown: false,animation:'slide_from_right',animationDuration:600 }}  />
+        <Stack.Screen name="fallingBalls/fallingBalls" options={{ headerShown: false,animation:'slide_from_right',animationDuration:600 }}  />
+        <Stack.Screen name="floatBoat/floatBoat" options={{ headerShown: false,animation:'slide_from_right',animationDuration:600 }}  />
+        <Stack.Screen name="test/test" options={{ headerShown: false,animation:'slide_from_right',animationDuration:600 }}  />
     </Stack>
   )
 }
