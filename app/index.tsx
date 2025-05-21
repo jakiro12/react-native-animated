@@ -47,11 +47,17 @@ export default function Index() {
           >
           <Text style={styles.textTitle}>Falling Balls</Text>
         </TouchableOpacity>
-         <TouchableOpacity style={styles.btnAnimation}
+        <TouchableOpacity style={styles.btnAnimation}
           activeOpacity={0.7}
           onPress={()=>router.push('/floatBoat/floatBoat')}
           >
           <Text style={styles.textTitle}>Float Boat</Text>
+        </TouchableOpacity>         
+        <TouchableOpacity style={styles.btnAnimation}
+          activeOpacity={0.7}
+          onPress={()=>router.push('/bgAnimate/bgAnimate')}
+          >
+          <Text style={styles.textTitle}>Background Animate</Text>
         </TouchableOpacity>         
       </ScrollView>
     </View>

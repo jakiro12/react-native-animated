@@ -2,11 +2,10 @@ import { View, StyleSheet, Animated, Easing } from "react-native";
 import { useEffect, useRef } from "react";
 
 const FloatBoatAnimation = () => {
-  const rotation = useRef(new Animated.Value(0)).current;
-  const float = useRef(new Animated.Value(0)).current;
+  const rotation = useRef(new Animated.Value(0)).current
+  const float = useRef(new Animated.Value(0)).current
 
   useEffect(() => {
-    // Animación de rotación de lado a lado
     Animated.loop(
       Animated.sequence([
         Animated.timing(rotation, {
@@ -24,7 +23,6 @@ const FloatBoatAnimation = () => {
       ])
     ).start();
 
-    // Animación de flotación vertical
     Animated.loop(
       Animated.sequence([
         Animated.timing(float, {
@@ -40,20 +38,20 @@ const FloatBoatAnimation = () => {
           useNativeDriver: true,
         }),
       ])
-    ).start();
-  }, []);
+    ).start()
+  }, [])
 
   const rotateInterpolate = rotation.interpolate({
     inputRange: [0, 1],
     outputRange: ['-8deg', '8deg'],
-  });
+  })
 
   const animatedStyle = {
     transform: [
       { translateY: float }, // Flotación
       { rotate: rotateInterpolate }, // Rotación simulando balanceo
     ],
-  };
+  }
 
   return (
     <View style={styles.container}>
