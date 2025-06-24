@@ -57,8 +57,14 @@ export default function Index() {
           activeOpacity={0.7}
           onPress={()=>router.push('/bgAnimate/bgAnimate')}
           >
-          <Text style={styles.textTitle}>Background Animate</Text>
-        </TouchableOpacity>         
+          <Text style={styles.textTitle}>Background Animated</Text>
+        </TouchableOpacity>          
+        <TouchableOpacity style={styles.btnAnimation}
+          activeOpacity={0.7}
+          onPress={()=>router.push('/shining/shining')}
+          >
+          <Text style={styles.textTitle}>Shining Box</Text>
+        </TouchableOpacity>   
       </ScrollView>
     </View>
   );

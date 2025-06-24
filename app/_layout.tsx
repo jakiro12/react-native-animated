@@ -12,6 +12,7 @@ export default function RootLayout() {
         <Stack.Screen name="fallingBalls/fallingBalls" options={{ headerShown: false,animation:'slide_from_right',animationDuration:600 }}  />
         <Stack.Screen name="floatBoat/floatBoat" options={{ headerShown: false,animation:'slide_from_right',animationDuration:600 }}  />
         <Stack.Screen name="bgAnimate/bgAnimate" options={{ headerShown: false,animation:'slide_from_right',animationDuration:600 }}  />
+        <Stack.Screen name="shining/shining" options={{ headerShown: false,animation:'slide_from_right',animationDuration:600 }}  />
     </Stack>
   )
 }

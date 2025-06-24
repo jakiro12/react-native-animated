@@ -36,7 +36,7 @@ const loginStyles : StyleListTypes  = StyleSheet.create({
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
-         boxShadow:'2px 2px 5px 0pxrgba(0, 0, 0, 0.34)',
+        boxShadow:'2px 2px 5px 0pxrgba(0, 0, 0, 0.34)',
     },
     textTitle:{
         fontSize:20,

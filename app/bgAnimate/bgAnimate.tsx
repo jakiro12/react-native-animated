@@ -13,7 +13,7 @@ const BackgroundAnimate=()=>{
         return {backgroundColor:bgColor} //Retorna el estilo en linea con su nuevo valor :D
     })
     const handleBgView=(index:number)=>{
-        bgColorIndex.value = withTiming(index,{duration:500},()=>{console.log('Animacion completada')})
+        bgColorIndex.value = withTiming(index,{duration:2000},()=>{console.log('Animacion completada')})
     }
     return(
         <Animated.View style={[styles.container,animateBg]}>
