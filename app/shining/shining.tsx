@@ -1,13 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import { StyleSheet, View, Animated } from 'react-native';
+import { StyleSheet, View, Animated, Text } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-
 //Instalar npx expo install expo-linear-gradient para crear el componente con gradiente :D
-
 export default function App() {
-  const gradientPosition = useRef(new Animated.Value(0)).current;
-
-  
+  const gradientPosition = useRef(new Animated.Value(0)).current;  
   const animateGradient = () => {
     Animated.loop(
     Animated.sequence([  Animated.timing(gradientPosition, {
@@ -38,7 +34,7 @@ export default function App() {
         <Animated.View
           style={[
             styles.gradientContainer,
-            { transform: [{ translateX: gradientTranslateX }] },
+            { transform: [{ translateX: gradientTranslateX },{rotate:'45deg'}] },
           ]}
         >
           <LinearGradient
@@ -48,6 +44,7 @@ export default function App() {
             style={styles.gradient}
           />
         </Animated.View>
+          <Text style={styles.text}>Loading...</Text>
       </View>
     </View>
   )
@@ -67,16 +64,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     position: 'relative',
     overflow: 'hidden', 
-    borderWidth: 1,
-    borderColor: '#000000',
-    borderRadius:20
+    borderRadius:20,
+    boxShadow:'2px 2px 5px 0pxrgba(0, 0, 0, 0.34)',
   },
   gradientContainer: {
-    width: '200%', 
-    height: '100%',
+    width: '250%', 
+    height: '250%',
   },
   gradient: {
     flex: 1,
     width:'200%'
   },  
+  text:{
+    zIndex:1,
+    position:'absolute',
+    color:'#ffffff',
+    fontSize:22,
+    fontWeight:'bold'
+  }
 })
