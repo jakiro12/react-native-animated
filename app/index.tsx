@@ -65,6 +65,12 @@ export default function Index() {
           >
           <Text style={styles.textTitle}>Shining Box</Text>
         </TouchableOpacity>   
+         <TouchableOpacity style={styles.btnAnimation}
+          activeOpacity={0.7}
+          onPress={()=>router.push('/resize/resize')}
+          >
+          <Text style={styles.textTitle}>Resize View</Text>
+        </TouchableOpacity>   
       </ScrollView>
     </View>
   );
