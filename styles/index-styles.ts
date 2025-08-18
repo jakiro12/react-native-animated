@@ -15,20 +15,20 @@ const loginStyles : StyleListTypes  = StyleSheet.create({
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
-        backgroundColor:'#0065ff'
+        backgroundColor:'#ffffff'
     },
      containerScroll:{
-        width:width * 0.9,
+        width:width * 0.95,
         rowGap:15,
         display:'flex',
         flexDirection:'column',
         justifyContent:'flex-start',
         alignItems:'center',
         paddingTop:20,  
-        paddingBottom:10          
+        paddingBottom:10,         
     },
     btnAnimation:{
-        width:'100%',
+        width:'95%',
         height:80,
         borderRadius:10,
         borderWidth:1,
@@ -37,6 +37,7 @@ const loginStyles : StyleListTypes  = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         boxShadow:'2px 2px 5px 0pxrgba(0, 0, 0, 0.34)',
+        backgroundColor:'#0065ff'
     },
     textTitle:{
         fontSize:20,

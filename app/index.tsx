@@ -6,7 +6,6 @@ export default function Index() {
     <View
       style={styles.container}      
     >
-      <StatusBar  backgroundColor="#00000088"/>
       <ScrollView 
         contentContainerStyle={styles.containerScroll}
         showsVerticalScrollIndicator={false}
