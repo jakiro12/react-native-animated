@@ -1,8 +1,13 @@
-import { ScrollView, StatusBar, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import styles from '../styles/index-styles'
 import { router } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
 export default function Index() {
   return (
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: "black" }}
+      edges={["bottom", "top"]}
+    >
     <View
       style={styles.container}      
     >
@@ -72,5 +77,6 @@ export default function Index() {
         </TouchableOpacity>   
       </ScrollView>
     </View>
+    </SafeAreaView>
   );
 }

@@ -1,5 +1,6 @@
-import { View, StyleSheet, TouchableOpacity } from "react-native"
+import { View, StyleSheet, TouchableOpacity, Text } from "react-native"
 import Animated,{interpolateColor, useAnimatedStyle, useSharedValue, withTiming} from "react-native-reanimated"
+import { SafeAreaView } from "react-native-safe-area-context"
 
 const BackgroundAnimate=()=>{
     const bgColorIndex=useSharedValue(0)
@@ -13,10 +14,18 @@ const BackgroundAnimate=()=>{
         return {backgroundColor:bgColor} //Retorna el estilo en linea con su nuevo valor :D
     })
     const handleBgView=(index:number)=>{
-        bgColorIndex.value = withTiming(index,{duration:2000},()=>{console.log('Animacion completada')})
+        bgColorIndex.value = withTiming(index,{duration:2000},()=>{})
     }
     return(
+        <SafeAreaView
+              style={{ flex: 1, backgroundColor: "black" }}
+              edges={["bottom", "top"]}
+            >
         <Animated.View style={[styles.container,animateBg]}>
+      <View style={styles.cardOptions}>
+                <Text style={styles.textCard}>
+                    Change between colors
+                </Text>
             <View style={styles.btnContainer}>
                 {colors.map((e,i)=>
                     <TouchableOpacity key={i} style={[styles.button,{backgroundColor:e}]}
@@ -26,7 +35,9 @@ const BackgroundAnimate=()=>{
                     </TouchableOpacity>
                 )}                
             </View>            
+        </View>
         </Animated.View>
+        </SafeAreaView>
     )
 }
 
@@ -39,23 +50,34 @@ const styles = StyleSheet.create({
   },
   btnContainer:{
     width:'90%',
-    height:150,    
-    marginTop:'auto',
+    height:'80%',    
     display:'flex',
     justifyContent:'space-between',
     alignItems:'center',
     flexDirection:'row',
     paddingInline:5,
-    backgroundColor:'#ffffff',
-    borderTopLeftRadius:5,
-    borderTopRightRadius:5
   },
   button:{
     width:60,
     height:60,
     borderWidth:1,
-    borderColor:'#000000',
     borderRadius:5
   },
+  cardOptions:{
+    width:'80%',
+    height:150,
+    display:'flex',
+    flexDirection:'column',
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor:'#ffffff',
+    marginTop:'auto',
+    borderTopLeftRadius:5,
+    borderTopRightRadius:5
+  },
+  textCard:{
+    fontSize:17,
+    fontWeight:'bold'
+  }
   })
 export default BackgroundAnimate
