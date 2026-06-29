@@ -1,34 +1,25 @@
 import { StyleSheet,ImageStyle,ViewStyle,TextStyle, Dimensions } from "react-native";
 
 interface StyleListTypes{
-    container:ViewStyle
     containerScroll:ViewStyle
     btnAnimation:ViewStyle
     textTitle:TextStyle
 }
-const { width } = Dimensions.get("window");
 
-const loginStyles : StyleListTypes  = StyleSheet.create({
-    container:{
-        height: "100%",
-        width:'100%',
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center',
-        backgroundColor:'#ffffff'
-    },
+const loginStyles : StyleListTypes  = StyleSheet.create({   
      containerScroll:{
-        width:width * 0.95,
+        width:'100%',
         rowGap:15,
         display:'flex',
         flexDirection:'column',
         justifyContent:'flex-start',
         alignItems:'center',
         paddingTop:20,  
-        paddingBottom:10,         
+        paddingBottom:10,  
+        backgroundColor:'#ffffff'
     },
     btnAnimation:{
-        width:'95%',
+        width:'90%',
         height:80,
         borderRadius:10,
         borderWidth:1,

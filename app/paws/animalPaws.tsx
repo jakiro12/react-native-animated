@@ -1,35 +1,45 @@
 import { View, StyleSheet, Animated } from "react-native"
 import { useEffect,useRef, useState } from "react"
-const images=[ //Direccion de cada imagen
+import { SafeAreaView } from "react-native-safe-area-context"
+const images=[ 
     require('../../assets/animate/dog-paw.png'),
     require('../../assets/animate/cat-paw.png'),
     require('../../assets/animate/horse-paw.png')
 ]
 const AnimalPawsFadeImage=()=>{
     const opacity=useRef(new Animated.Value(0)).current
-    const [index, setIndex] = useState(0) //Indice inicial del array de imagenes
+    const [index, setIndex] = useState(0) 
 
-      useEffect(() => {
-    const fadeInOut = () => {
-      Animated.sequence([
-        Animated.timing(opacity, {
-          toValue: 1,
-          duration: 1000,
-          useNativeDriver: true,
-        }),
-        Animated.delay(500),
-        Animated.timing(opacity, {
-          toValue: 0,
-          duration: 1000,
-          useNativeDriver: true,
-        }),
-      ]).start(() => { //Luego de la primera animacion se aumenta en 1 el index
-        setIndex((prevIndex) => (prevIndex + 1) % images.length) //La division retorna el resto del modulo
-      })
+   useEffect(() => {
+  const animation = Animated.sequence([
+    Animated.timing(opacity, {
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }),
+    Animated.delay(500),
+    Animated.timing(opacity, {
+      toValue: 0,
+      duration: 1000,
+      useNativeDriver: true,
+    }),
+  ]);
+
+  animation.start(({ finished }) => {
+    if (finished) {
+      setIndex((prev) => (prev + 1) % images.length);
     }
-    fadeInOut()
-  }, [index])
+  });
+
+  return () => {
+    animation.stop();
+  };
+}, [index]);
     return(
+          <SafeAreaView
+                        style={{ flex: 1, backgroundColor: "black" }}
+                        edges={["bottom", "top"]}
+                      >
         <View style={styles.container}>
            <Animated.Image 
             source={images[index]}
@@ -37,6 +47,7 @@ const AnimalPawsFadeImage=()=>{
             resizeMode='contain'
            />
         </View>
+        </SafeAreaView>
     )
 }
 const styles = StyleSheet.create({
@@ -45,7 +56,7 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ffffff8e",
+    backgroundColor: "#ffffff",
   },
   image:{
     width:150,

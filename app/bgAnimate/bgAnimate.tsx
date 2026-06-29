@@ -60,8 +60,7 @@ const styles = StyleSheet.create({
   button:{
     width:60,
     height:60,
-    borderWidth:1,
-    borderRadius:5
+    borderRadius:30
   },
   cardOptions:{
     width:'80%',

@@ -1,5 +1,6 @@
 import { View, StyleSheet, Animated } from "react-native";
 import { useEffect, useRef } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const PulseAnimation = () => {
   const pulseValue = useRef(new Animated.Value(1)).current; // Valor inicial de la escala
@@ -22,6 +23,10 @@ const PulseAnimation = () => {
   }, [pulseValue]);
 
   return (
+     <SafeAreaView
+                  style={{ flex: 1, backgroundColor: "black" }}
+                  edges={["bottom", "top"]}
+                >
     <View style={styles.container}>
       <Animated.View
         style={[styles.box, { transform: [{ scale: pulseValue }] }]} 
@@ -33,6 +38,7 @@ const PulseAnimation = () => {
         />
       </Animated.View>
     </View>
+    </SafeAreaView>
   );
 };
 
@@ -43,7 +49,7 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ffffff8e",
+    backgroundColor: "#ffffff",
     position: "relative",
   },
   box: {

@@ -8,6 +8,7 @@ import Animated, {
   Extrapolation,
   SharedValue,
 } from 'react-native-reanimated';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const ITEM_WIDTH : number = 100 + 60  // ancho del ítem + espacio horizontal (margin)
 
@@ -50,6 +51,7 @@ const AnimatedCarouselItem : React.FC<AnimatedCarouselItemProps> = ({ item, inde
   });
 
   return (
+   
     <Animated.View style={[styles.item, animatedStyle, { backgroundColor: item.color }]}>
       <Text style={styles.text}>{item.id}</Text>
     </Animated.View>
@@ -66,6 +68,10 @@ const AnimatedCarousel = () => {
   });
 
   return (
+     <SafeAreaView
+                      style={{ flex: 1, backgroundColor: "black" }}
+                      edges={["bottom", "top"]}
+                    >
     <View style={styles.container}>
       <View style={{ width: '100%', height: 400 }}>
         <Animated.FlatList
@@ -85,6 +91,7 @@ const AnimatedCarousel = () => {
         />
       </View>
     </View>
+    </SafeAreaView>
   );
 };
 
@@ -94,7 +101,7 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ffffff8e',
+    backgroundColor: '#ffffff',
   },
   contentContainer: {
     paddingHorizontal: '27%',

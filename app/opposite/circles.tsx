@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Animated, View, StyleSheet,Easing } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 const CombinedAnimation = () => {
   const rotateValue = useRef(new Animated.Value(0)).current; //Valor inicial de la rotacion
   const pulseValue = useRef(new Animated.Value(1)).current; //Valor inicial de la escala
@@ -58,6 +59,10 @@ const CombinedAnimation = () => {
 
 
   return (
+     <SafeAreaView
+                      style={{ flex: 1, backgroundColor: "black" }}
+                      edges={["bottom", "top"]}
+                    >
     <View style={styles.container}>
       <Animated.View style={[styles.box, combinedStyle]}>
         <Animated.Image
@@ -76,6 +81,7 @@ const CombinedAnimation = () => {
         </Animated.View>
       </View>
     </View>
+    </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
@@ -85,7 +91,7 @@ const styles = StyleSheet.create({
     display:'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#ffffff8e',
+    backgroundColor:'#ffffff',
     position:'relative'
   },
   box: {

@@ -1,5 +1,6 @@
 import { View, StyleSheet, Animated, Easing, Dimensions } from "react-native";
 import { useEffect, useRef } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const FallingBallsAnimation = () => {
   const { width } = Dimensions.get("screen")
@@ -21,31 +22,38 @@ const FallingBallsAnimation = () => {
 
   const targets = ballPositionsX.map((x) => ({ x, y: 0 }));
 
-  useEffect(() => {
-    requestAnimationFrame(() => { // Ejecutar animaciones en el siguiente frame para evitar conflictos con useInsertionEffect
-      positions.forEach((position, index) => {
-        Animated.loop(
-          Animated.sequence([
-            Animated.timing(position, {
-              toValue: targets[index],
-              duration: 1000,
-              easing: Easing.linear,
-              useNativeDriver: true,
-              delay: index * 300,
-            }),
-            Animated.timing(position, {
-              toValue: { x: targets[index].x, y: -100 },
-              duration: 1000,
-              easing: Easing.linear,
-              useNativeDriver: true,
-            }),
-          ])
-        ).start();
-      })
-    })
-  }, [])
+useEffect(() => {
+  const animations = positions.map((position, index) =>
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(position, {
+          toValue: targets[index],
+          duration: 1000,
+          easing: Easing.linear,
+          useNativeDriver: true,
+          delay: index * 300,
+        }),
+        Animated.timing(position, {
+          toValue: { x: targets[index].x, y: -100 },
+          duration: 1000,
+          easing: Easing.linear,
+          useNativeDriver: true,
+        }),
+      ])
+    )
+  );
 
+  animations.forEach((animation) => animation.start());
+
+  return () => {
+    animations.forEach((animation) => animation.stop());
+  };
+}, []);
   return (
+     <SafeAreaView
+                  style={{ flex: 1, backgroundColor: "black" }}
+                  edges={["bottom", "top"]}
+                >
     <View style={styles.container}>
       {positions.map((pos, index) => (
         <Animated.View
@@ -58,6 +66,7 @@ const FallingBallsAnimation = () => {
         />
       ))}
     </View>
+    </SafeAreaView>
   )
 }
 
@@ -69,7 +78,7 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ffffff8e",
+    backgroundColor: "#ffffff",
   },
   ball: {
     position: "absolute",

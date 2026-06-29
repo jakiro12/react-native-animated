@@ -1,82 +1,27 @@
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView } from "react-native";
 import styles from '../styles/index-styles'
-import { router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
+import AnimatedButton from "./components/navigate-btn";
+import { animations } from "@/utils/btn-information";
 export default function Index() {
   return (
     <SafeAreaView
       style={{ flex: 1, backgroundColor: "black" }}
       edges={["bottom", "top"]}
-    >
-    <View
-      style={styles.container}      
-    >
+    >    
       <ScrollView 
         contentContainerStyle={styles.containerScroll}
         showsVerticalScrollIndicator={false}
-        >
-        <TouchableOpacity style={styles.btnAnimation}
-          activeOpacity={0.7}
-          onPress={()=>router.push('/opposite/circles')}
-          >
-          <Text style={styles.textTitle}>Opposite Loaders</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btnAnimation}
-          activeOpacity={0.7}
-          onPress={()=>router.push('/pulse/pulse')}
-          >
-          <Text style={styles.textTitle}>Pulse</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btnAnimation}
-          activeOpacity={0.7}
-          onPress={()=>router.push('/fragment/balls')}
-          >
-          <Text style={styles.textTitle}>Fragment Balls</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btnAnimation}
-          activeOpacity={0.7}
-          onPress={()=>router.push('/fadeText/fadeText')}
-          >
-          <Text style={styles.textTitle}>Fade Text</Text>
-        </TouchableOpacity>
-         <TouchableOpacity style={styles.btnAnimation}
-          activeOpacity={0.7}
-          onPress={()=>router.push('/paws/animalPaws')}
-          >
-          <Text style={styles.textTitle}>Animal Paws</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btnAnimation}
-          activeOpacity={0.7}
-          onPress={()=>router.push('/fallingBalls/fallingBalls')}
-          >
-          <Text style={styles.textTitle}>Falling Balls</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btnAnimation}
-          activeOpacity={0.7}
-          onPress={()=>router.push('/floatBoat/floatBoat')}
-          >
-          <Text style={styles.textTitle}>Float Boat</Text>
-        </TouchableOpacity>         
-        <TouchableOpacity style={styles.btnAnimation}
-          activeOpacity={0.7}
-          onPress={()=>router.push('/bgAnimate/bgAnimate')}
-          >
-          <Text style={styles.textTitle}>Background Animated</Text>
-        </TouchableOpacity>          
-        <TouchableOpacity style={styles.btnAnimation}
-          activeOpacity={0.7}
-          onPress={()=>router.push('/shining/shining')}
-          >
-          <Text style={styles.textTitle}>Shining Box</Text>
-        </TouchableOpacity>   
-         <TouchableOpacity style={styles.btnAnimation}
-          activeOpacity={0.7}
-          onPress={()=>router.push('/resize/resize')}
-          >
-          <Text style={styles.textTitle}>Resize View</Text>
-        </TouchableOpacity>   
+        >      
+       {animations.map((animation,i)=>
+        <AnimatedButton 
+        key={i}
+        title={animation.title}
+        route={animation.route}
+        style={styles.btnAnimation}
+        />
+      )} 
       </ScrollView>
-    </View>
     </SafeAreaView>
   );
 }

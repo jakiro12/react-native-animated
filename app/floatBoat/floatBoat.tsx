@@ -1,5 +1,6 @@
 import { View, StyleSheet, Animated, Easing } from "react-native";
 import { useEffect, useRef } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const FloatBoatAnimation = () => {
   const rotation = useRef(new Animated.Value(0)).current
@@ -48,12 +49,16 @@ const FloatBoatAnimation = () => {
 
   const animatedStyle = {
     transform: [
-      { translateY: float }, // Flotación
-      { rotate: rotateInterpolate }, // Rotación simulando balanceo
+      { translateY: float }, 
+      { rotate: rotateInterpolate }, 
     ],
   }
 
   return (
+     <SafeAreaView
+                      style={{ flex: 1, backgroundColor: "black" }}
+                      edges={["bottom", "top"]}
+                    >
     <View style={styles.container}>
       <Animated.Image
         style={[styles.boat, animatedStyle]}
@@ -63,6 +68,7 @@ const FloatBoatAnimation = () => {
       <View style={styles.sea}>
       </View>
     </View>
+    </SafeAreaView>
   );
 };
 
@@ -72,7 +78,7 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ffffff8e",
+    backgroundColor: "#ffffff",
   },
   boat: {
     width: 200,
