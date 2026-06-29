@@ -46,4 +46,8 @@ export const animations: AnimationItem[] = [
     title: "Shining Box",
     route: "/shining/shining",
   },
+  {
+    title:"Test",
+    route:"/test/test",
+  }
 ];
