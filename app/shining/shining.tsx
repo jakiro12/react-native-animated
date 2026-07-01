@@ -6,6 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function App() {
   const gradientPosition = useRef(new Animated.Value(0)).current;
   const shadowSize=useRef(new Animated.Value(1)).current
+  const translateYBall=useRef(new Animated.Value(0)).current
   useEffect(() => {
     const animation = 
   Animated.loop(
@@ -18,6 +19,11 @@ export default function App() {
       }),
       Animated.timing(shadowSize, {
         toValue: 0.6,
+        duration: 2000,
+        useNativeDriver: true,
+      }),
+      Animated.timing(translateYBall, {
+        toValue: -30,
         duration: 2000,
         useNativeDriver: true,
       }),
@@ -34,6 +40,11 @@ export default function App() {
         duration: 2000,
         useNativeDriver: true,
       }),
+       Animated.timing(translateYBall, {
+        toValue: 0,
+        duration: 2000,
+        useNativeDriver: true,
+      }),
     ]),
   ])
 )
@@ -44,7 +55,7 @@ export default function App() {
       animation.stop();
     };
   }, [gradientPosition]);
-
+ 
   const gradientTranslateX = gradientPosition.interpolate({
     inputRange: [0, 1],
     outputRange: ["-20%", "20%"],
@@ -61,7 +72,7 @@ const animatedShadowStyle = {
       edges={["bottom", "top"]}
     >
       <View style={styles.container}>
-        <View style={styles.box}>
+        <Animated.View style={[styles.box,{transform:[{translateY:translateYBall}]}]}>
           <Animated.View
             style={[
               styles.gradientContainer,
@@ -81,7 +92,7 @@ const animatedShadowStyle = {
             />
           </Animated.View>
           <Text style={styles.text}>Loading...</Text>
-        </View>
+        </Animated.View>
         <Animated.View style={[styles.shadowBoxContainer, animatedShadowStyle]}>
         <View
               style={styles.shadowBox}
@@ -106,7 +117,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     position: "relative",
     overflow: "hidden",
-    borderRadius: 100,
+    borderRadius: 100,   
   },   
   gradientContainer: {
     width: "200%",
@@ -128,7 +139,8 @@ const styles = StyleSheet.create({
     height: 180,
     borderRadius: 90,
     transform: [{ scaleX: 1 }, { scaleY: 0.3 }],
-    backgroundColor:'#00000086'
+    backgroundColor: "#00000045",
+
   },
   shadowBoxContainer:{
     width: 200,

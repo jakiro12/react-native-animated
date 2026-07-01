@@ -39,11 +39,11 @@ export const animations: AnimationItem[] = [
     route: "/pulse/pulse",
   },
   {
-    title: "Resize View",
+    title: "Resize Slider",
     route: "/resize/resize",
   },
   {
-    title: "Shining Box",
+    title: "Shining Bubble",
     route: "/shining/shining",
   },
   {

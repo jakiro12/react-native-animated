@@ -11,16 +11,36 @@ type RippleData = {
   id: number;
   x: number;
   y: number;
+  color:string;
 };
+const COLORS = [
+  "#FF3B30",
+  "#FF9500",
+  "#FFCC00",
+  "#34C759",
+  "#00C7BE",
+  "#007AFF",
+  "#5856D6",
+  "#AF52DE",
+];
 
 export default function TouchRippleScreen() {
   const [ripples, setRipples] = useState<RippleData[]>([]);
   const nextId = useRef(0);
-
+  const currentColor=useRef(0)
   const addRipple = (x: number, y: number) => {
     const id = nextId.current++;
-
-    setRipples((prev) => [...prev, { id, x, y }]);
+    const color =COLORS[currentColor.current]
+    currentColor.current=(currentColor.current + 1) % COLORS.length
+    setRipples((prev) => [
+    ...prev,
+    {
+      id,
+      x,
+      y,
+      color,
+    },
+  ]);
 
     setTimeout(() => {
       setRipples((prev) => prev.filter((r) => r.id !== id));
@@ -44,6 +64,7 @@ export default function TouchRippleScreen() {
             key={ripple.id}
             x={ripple.x}
             y={ripple.y}
+            color={ripple.color}
           />
         ))}
       </Pressable>
@@ -54,9 +75,10 @@ export default function TouchRippleScreen() {
 type RippleProps = {
   x: number;
   y: number;
+  color:string;
 };
 
-function Ripple({ x, y }: RippleProps) {
+function Ripple({ x, y,color }: RippleProps) {
   const scale = useSharedValue(0.5);
   const opacity = useSharedValue(0.6);
 
@@ -79,6 +101,7 @@ function Ripple({ x, y }: RippleProps) {
         {
           left: x - 25,
           top: y - 25,
+          backgroundColor:color
         },
       ]}
     />
@@ -95,6 +118,5 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: "rgba(0, 255, 0, 0.84)",
   },
 });
