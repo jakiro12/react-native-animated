@@ -14,7 +14,7 @@ export default function RootLayout() {
         <Stack.Screen name="bgAnimate/bgAnimate" options={{ headerShown: false,animation:'slide_from_right',animationDuration:600 }}  />
         <Stack.Screen name="shining/shining" options={{ headerShown: false,animation:'slide_from_right',animationDuration:600 }}  />
         <Stack.Screen name="resize/resize" options={{ headerShown: false,animation:'slide_from_right',animationDuration:600 }}  />
-        <Stack.Screen name="test/test" options={{ headerShown: false,animation:'slide_from_right',animationDuration:600 }}  />
+        <Stack.Screen name="touchRipple/touchRipple" options={{ headerShown: false,animation:'slide_from_right',animationDuration:600 }}  />
     </Stack>
   )
 }
