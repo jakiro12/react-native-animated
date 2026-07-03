@@ -7,6 +7,7 @@ export default function App() {
   const gradientPosition = useRef(new Animated.Value(0)).current;
   const shadowSize=useRef(new Animated.Value(1)).current
   const translateYBall=useRef(new Animated.Value(0)).current
+  const shadowOpacity=useRef(new Animated.Value(1)).current
   useEffect(() => {
     const animation = 
   Animated.loop(
@@ -27,6 +28,11 @@ export default function App() {
         duration: 2000,
         useNativeDriver: true,
       }),
+       Animated.timing(shadowOpacity, {
+        toValue: 0.5,
+        duration: 2000,
+        useNativeDriver: true,
+      }),
     ]),
 
     Animated.parallel([
@@ -42,6 +48,11 @@ export default function App() {
       }),
        Animated.timing(translateYBall, {
         toValue: 0,
+        duration: 2000,
+        useNativeDriver: true,
+      }),
+       Animated.timing(shadowOpacity, {
+        toValue: 1,
         duration: 2000,
         useNativeDriver: true,
       }),
@@ -94,8 +105,8 @@ const animatedShadowStyle = {
           <Text style={styles.text}>Loading...</Text>
         </Animated.View>
         <Animated.View style={[styles.shadowBoxContainer, animatedShadowStyle]}>
-        <View
-              style={styles.shadowBox}
+        <Animated.View
+              style={[styles.shadowBox,{opacity:shadowOpacity}]}
             />
       </Animated.View>
             </View>

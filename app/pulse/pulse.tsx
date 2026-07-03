@@ -3,25 +3,41 @@ import { useEffect, useRef } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const PulseAnimation = () => {
-  const pulseValue = useRef(new Animated.Value(1)).current; // Valor inicial de la escala
+  const pulseValue = useRef(new Animated.Value(1)).current; 
 
-  useEffect(() => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(pulseValue, {
-          toValue: 1.3,  
-          duration: 500, 
-          useNativeDriver: true,
-        }),
-        Animated.timing(pulseValue, {
-          toValue: 1,    
-          duration: 500, 
-          useNativeDriver: true,
-        }),
-      ])
-    ).start();
-  }, [pulseValue]);
+useEffect(() => {
+  const animation = Animated.loop(
+    Animated.sequence([
+      Animated.timing(pulseValue, {
+        toValue: 1.18,
+        duration: 90,
+        useNativeDriver: true,
+      }),
+      Animated.timing(pulseValue, {
+        toValue: 1,
+        duration: 80,
+        useNativeDriver: true,
+      }),
 
+      Animated.timing(pulseValue, {
+        toValue: 1.1,
+        duration: 90,
+        useNativeDriver: true,
+      }),
+      Animated.timing(pulseValue, {
+        toValue: 1,
+        duration: 120,
+        useNativeDriver: true,
+      }),
+
+      Animated.delay(700),
+    ])
+  );
+
+  animation.start();
+
+  return () => animation.stop();
+}, []);
   return (
      <SafeAreaView
                   style={{ flex: 1, backgroundColor: "black" }}
@@ -34,7 +50,7 @@ const PulseAnimation = () => {
         <Animated.Image
             source={require('../../assets/animate/react-logo.png')}
             style={styles.image}
-            resizeMode="contain"
+            resizeMode="cover"
         />
       </Animated.View>
     </View>
