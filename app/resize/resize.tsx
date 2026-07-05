@@ -2,39 +2,42 @@ import React from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import Animated, {
   useSharedValue,
+  useAnimatedRef,
   useAnimatedScrollHandler,
-  useAnimatedStyle,
-  interpolate,
+  scrollTo,
+  runOnUI,
   Extrapolation,
-  SharedValue,
+  interpolate,
+  useAnimatedStyle,
 } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
-const ITEM_SIZE = 100;
-const ITEM_SPACING = 60;
-const ITEM_WIDTH = ITEM_SIZE + ITEM_SPACING;
-const SIDE_PADDING = (SCREEN_WIDTH - ITEM_WIDTH) / 2;
+const ITEM_SIZE = 140;
+const GAP = 30;
+const ITEM_WIDTH = ITEM_SIZE + GAP;
 
-type CarouselItem = {
-  id: string;
-  color: string;
-};
+const SIDE_PADDING = (SCREEN_WIDTH - ITEM_SIZE) / 2;
 
-const exampleData: CarouselItem[] = [
+const boxData=[
   { id: "1", color: "tomato" },
   { id: "2", color: "orange" },
   { id: "3", color: "skyblue" },
   { id: "4", color: "limegreen" },
   { id: "5", color: "violet" },
   { id: "6", color: "gold" },
-];
-
+  { id: "7", color: "violet" },
+  { id: "8", color: "gold" }
+]
+type CarouselItem = {
+  id: string;
+  color: string;
+};
 interface AnimatedCarouselItemProps {
   item: CarouselItem;
   index: number;
-  scrollX: SharedValue<number>;
+  scrollX: any;
 }
 
 const AnimatedCarouselItem: React.FC<AnimatedCarouselItemProps> = ({
@@ -52,7 +55,7 @@ const AnimatedCarouselItem: React.FC<AnimatedCarouselItemProps> = ({
     const scale = interpolate(
       scrollX.value,
       inputRange,
-      [1, 1.8, 1],
+      [1, 1.25, 1],
       Extrapolation.CLAMP
     );
 
@@ -62,19 +65,16 @@ const AnimatedCarouselItem: React.FC<AnimatedCarouselItemProps> = ({
   });
 
   return (
-    <Animated.View
-      style={[
-        styles.item,
-        animatedStyle,
-        { backgroundColor: item.color },
-      ]}
-    >
-      <Text style={styles.text}>{item.id}</Text>
+       <Animated.View style={[styles.card,animatedStyle,{backgroundColor:item.color}]}>
+              <Text style={styles.text}>{item.id}</Text>
+           
     </Animated.View>
   );
 };
 
-export default function AnimatedCarousel() {
+export default function Carousel() {
+  const scrollViewRef = useAnimatedRef<Animated.ScrollView>();
+
   const scrollX = useSharedValue(0);
 
   const scrollHandler = useAnimatedScrollHandler({
@@ -83,39 +83,44 @@ export default function AnimatedCarousel() {
     },
   });
 
+ const snapToClosest = () => {
+  const index = Math.round(scrollX.value / ITEM_WIDTH);
+  const targetOffset = index * ITEM_WIDTH + GAP / 2;
+
+  if (Math.abs(scrollX.value - targetOffset) < 1) {
+    return;
+  }
+  runOnUI(() => {
+    scrollTo(scrollViewRef, targetOffset, 0, true);
+  })();
+};
+
   return (
-    <SafeAreaView
-      style={{ flex: 1, backgroundColor: "black" }}
-      edges={["top", "bottom"]}
-    >
-      <View style={styles.container}>
-        <View style={{ width: "100%", height: 400 }}>
-          <Animated.FlatList
-            data={exampleData}
-            keyExtractor={(item) => item.id}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            onScroll={scrollHandler}
-            scrollEventThrottle={16}
-            snapToInterval={ITEM_WIDTH}
-            snapToAlignment="center"
-            decelerationRate="fast"
-            bounces={false}
-            contentContainerStyle={{
-              paddingHorizontal: SIDE_PADDING,
-            }}
-            renderItem={({ item, index }) => (
-              <View style={styles.itemContainer}>
-                <AnimatedCarouselItem
-                  item={item}
-                  index={index}
-                  scrollX={scrollX}
-                />
-              </View>
-            )}
-          />
-        </View>
-      </View>
+    <SafeAreaView style={styles.container}>
+      <Animated.ScrollView
+        ref={scrollViewRef}
+        horizontal
+        bounces={false}
+        showsHorizontalScrollIndicator={false}
+        scrollEventThrottle={16}
+        onScroll={scrollHandler}
+        onMomentumScrollEnd={snapToClosest}
+        contentContainerStyle={{
+          paddingHorizontal: SIDE_PADDING,
+          alignItems: "center",
+        }}
+      >
+        {boxData.map((item,index) => (
+          <View key={item.id} style={styles.itemContainer}>
+            <AnimatedCarouselItem
+            index={index}
+            key={item.id}
+            scrollX={scrollX}
+            item={item}
+            />
+          </View>
+        ))}
+      </Animated.ScrollView>
     </SafeAreaView>
   );
 }
@@ -123,25 +128,26 @@ export default function AnimatedCarousel() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#FFF",
     justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#fff",
   },
+
   itemContainer: {
     width: ITEM_WIDTH,
-    alignItems: "center",
     justifyContent: "center",
+    alignItems: "center",
   },
-  item: {
+
+  card: {
     width: ITEM_SIZE,
     height: ITEM_SIZE,
+    borderRadius: 12,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 8,
   },
+
   text: {
-    color: "#fff",
+    fontSize: 32,
     fontWeight: "bold",
-    fontSize: 18,
   },
 });
