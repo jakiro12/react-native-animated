@@ -9,6 +9,7 @@ import Animated, {
   Extrapolation,
   interpolate,
   useAnimatedStyle,
+  SharedValue,
 } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -37,7 +38,7 @@ type CarouselItem = {
 interface AnimatedCarouselItemProps {
   item: CarouselItem;
   index: number;
-  scrollX: any;
+  scrollX: SharedValue<number>;
 }
 
 const AnimatedCarouselItem: React.FC<AnimatedCarouselItemProps> = ({
