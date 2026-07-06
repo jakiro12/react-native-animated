@@ -18,7 +18,7 @@ export const dropStage1: DropType = {
 
   duration: 350,
 
-  scale: 1,
+  scale: 0.45,
 
   rotation: 0,
 
