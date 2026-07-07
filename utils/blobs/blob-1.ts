@@ -16,7 +16,7 @@ export type DropType = {
 export const dropStage1: DropType = {
   name: "dropStage1",
 
-  duration: 350,
+  duration: 700,
 
   scale: 0.45,
 

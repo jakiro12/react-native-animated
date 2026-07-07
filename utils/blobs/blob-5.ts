@@ -13,7 +13,7 @@ export type DropTypes = {
 };
 export const upperDrop :DropTypes =
 {name:"upperDrop",
-    duration: 350,
+    duration: 700,
   scale: 1,
   rotation: 0,
   offsetX: 0,
@@ -27,8 +27,8 @@ points: [
 
 export const lowerDrop :DropTypes =
 {name:"lowerDrop",
-    duration: 350,
-  scale: 1,
+    duration: 700,
+  scale: 0.5,
   rotation: 0,
   offsetX: 0,
   offsetY: 0,

@@ -13,8 +13,8 @@ export type DropTypes = {
 };
 export const dropStage3 :DropTypes= 
 {name:"dropStage3",
-  duration: 350,
-  scale: 1,
+  duration: 700,
+  scale: 0.5,
   rotation: 0,
   offsetX: 0,
   offsetY: 0,
