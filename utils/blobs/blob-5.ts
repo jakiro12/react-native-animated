@@ -11,19 +11,7 @@ export type DropTypes = {
   offsetY: number;
   points: Point[];
 };
-export const upperDrop :DropTypes =
-{name:"upperDrop",
-    duration: 700,
-  scale: 1,
-  rotation: 0,
-  offsetX: 0,
-  offsetY: 0,
-points: [
-  { x: 0, y: -170 },
-  { x: 18, y: -150 },
-  { x: 0, y: -130 },
-  { x: -18, y: -150 },
-]}
+
 
 export const lowerDrop :DropTypes =
 {name:"lowerDrop",
@@ -33,14 +21,14 @@ export const lowerDrop :DropTypes =
   offsetX: 0,
   offsetY: 0,
 points: [
-  { x: 0, y: -40 },
+  { x: 0, y: -100 },
 
-  { x: 80, y: 10 },
-  { x: 100, y: 95 },
+  { x: 87, y: -50 },
+  { x: 87, y: 50 },
 
-  { x: 0, y: 140 },
+  { x: 0, y: 100 },
 
-  { x: -100, y: 95 },
+  { x: -87, y: 50 },
 
-  { x: -80, y: 10 },
+  { x: -87, y: -50 },
 ]}

@@ -17,7 +17,7 @@ export default function TestAnimation() {
   const currentBlob = waterFalling[currentAnimation];
 
   const blob = useMemo(() => {
-    const pts = waterFalling[1].points.map((p) => ({
+    const pts = waterFalling[6].points.map((p) => ({
       x: p.x*currentBlob.scale + CENTER_X + currentBlob.offsetX,
       y: p.y*currentBlob.scale + CENTER_Y + currentBlob.offsetY,
     }));
