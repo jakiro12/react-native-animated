@@ -13,26 +13,26 @@ export type DropTypes = {
 };
 export const drops8:DropTypes ={
 name:"drops",
- duration: 700,
+ duration: 25,
   scale: 0.5,
   rotation: 0,
   offsetX: 0,
   offsetY: 0, 
 points: [
-  { x: 0, y: -88 },
+  { x: 0, y: -40 },
 
-  { x: 70, y: -72 },
-  { x: 110, y: -40 },
-  { x: 125, y: 0 },
-  { x: 110, y: 40 },
-  { x: 70, y: 72 },
+  { x: 70, y: -24 },
+  { x: 110, y: 8 },
+  { x: 125, y: 48 },
+  { x: 110, y: 88 },
+  { x: 70, y: 120 },
 
-  { x: 0, y: 88 },
+  { x: 0, y: 136 },
 
-  { x: -70, y: 72 },
-  { x: -110, y: 40 },
-  { x: -125, y: 0 },
-  { x: -110, y: -40 },
-  { x: -70, y: -72 },
+  { x: -70, y: 120 },
+  { x: -110, y: 88 },
+  { x: -125, y: 48 },
+  { x: -110, y: 8 },
+  { x: -70, y: -24 },
 ]
 }

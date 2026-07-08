@@ -63,7 +63,7 @@ export default function TestAnimation() {
     }, waterFalling[currentAnimation].duration);
 
     return () => clearInterval(id);
-}, [currentAnimation])
+}, [currentAnimation]) 
   return (
     <SafeAreaView
       style={styles.safeArea}
@@ -71,7 +71,7 @@ export default function TestAnimation() {
     >
       <View style={styles.container}>
         <Canvas style={StyleSheet.absoluteFill}>
-          <Path path={blob} color="#5D6BFF" />
+          <Path path={blob} color="#04ac1a" />
         </Canvas>
       </View>
     </SafeAreaView>

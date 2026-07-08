@@ -13,9 +13,9 @@ export type DropTypes = {
   points: Point[];
 };
 
-export const dropStage2: DropTypes = {
+export const dropStage1b: DropTypes = {
   name: "dropStage2",
-  duration: 80,
+  duration: 100,
   scale: 0.4,
   rotation: 0,
   offsetX: 0,
@@ -23,7 +23,7 @@ export const dropStage2: DropTypes = {
  points: [
   { x: 80, y: -150 },
   { x: 80, y: -135 },
-  { x: 58, y: -128 },
+  { x: 68, y: -128 },
   { x: 81, y: -99 },
   { x: 95, y: -71 },
   { x: 100, y: -40 },
@@ -39,8 +39,7 @@ export const dropStage2: DropTypes = {
   { x: -100, y: -40 },
   { x: -95, y: -71 },
   { x: -81, y: -99 },
-  { x: -59, y: -121 },
-  { x: -58, y: -128 },
+  { x: -68, y: -128 },
   { x: -80, y: -135 },
   { x: -80, y: -150 },
 ]

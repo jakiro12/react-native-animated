@@ -19,6 +19,10 @@ export const animations: AnimationItem[] = [
     route: "/fallingBalls/fallingBalls",
   },
   {
+    title:"Falling Drop",
+    route:"/fallingDrop/fallingDrop",
+  },
+  {
     title: "Float Boat",
     route: "/floatBoat/floatBoat",
   },
@@ -50,8 +54,5 @@ export const animations: AnimationItem[] = [
     title:"Touch Ripple",
     route:"/touchRipple/touchRipple",
   },
-   {
-    title:"Ztest",
-    route:"/test/test",
-  },
+   
 ];

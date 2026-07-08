@@ -15,7 +15,7 @@ export type DropTypes = {
 
 export const lowerDrop :DropTypes =
 {name:"lowerDrop",
-    duration: 700,
+    duration: 35,
   scale: 0.5,
   rotation: 0,
   offsetX: 0,

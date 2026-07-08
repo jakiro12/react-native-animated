@@ -16,7 +16,7 @@ export type DropType = {
 export const dropStage1: DropType = {
   name: "dropStage1",
 
-  duration: 700,
+  duration: 120,
 
   scale: 0.45,
 
@@ -25,19 +25,17 @@ export const dropStage1: DropType = {
   offsetX: 0,
   offsetY: 0,
 
-  points: [
-    { x: -90, y: -50 },
-    { x: 90, y: -50 },
-    { x: 85, y: 0 },
-    
-    { x: 85, y: 30 },
-    { x: 90, y: 70 },
-    { x: 60, y: 100 },
-    { x: 0, y: 110 },
-
-    { x: -60, y: 100 },
-    { x: -90, y: 70 },
-    { x: -85, y: 30 },
-    { x: -85, y: 0 },
-  ],
+points: [
+  { x: -90, y: -150 },
+  { x: 90, y: -150 },
+  { x: 85, y: -100 },
+  { x: 85, y: -70 },
+  { x: 90, y: -30 },
+  { x: 60, y: 0 },
+  { x: 0, y: 10 },
+  { x: -60, y: 0 },
+  { x: -90, y: -30 },
+  { x: -85, y: -70 },
+  { x: -85, y: -100 },
+],
 };
