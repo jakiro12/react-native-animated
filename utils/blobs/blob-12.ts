@@ -11,7 +11,7 @@ export type DropTypes = {
   offsetY: number;
   points: Point[];
 };
-export const drops:DropTypes ={
+export const drops12:DropTypes ={
 name:"drops",
  duration: 700,
   scale: 0.5,
@@ -19,20 +19,18 @@ name:"drops",
   offsetX: 0,
   offsetY: 0, 
 points: [
-  { x: 0, y: -100 },
+  { x: 0, y: -60 },
 
-  { x: 50, y: -87 },
-  { x: 87, y: -50 },
-  { x: 100, y: 0 },
-  { x: 87, y: 50 },
-  { x: 50, y: 87 },
-
-  { x: 0, y: 100 },
-
-  { x: -50, y: 87 },
-  { x: -87, y: 50 },
-  { x: -100, y: 0 },
-  { x: -87, y: -50 },
-  { x: -50, y: -87 },
+  { x: 78, y: -52 },
+  { x: 128, y: -18 },
+  { x: 150, y: 20 },
+  { x: 148, y: 58 },
+  { x: 105, y: 82 },
+  { x: 0, y: 86 },
+  { x: -105, y: 82 },
+  { x: -148, y: 58 },
+  { x: -150, y: 20 },
+  { x: -128, y: -18 },
+  { x: -78, y: -52 },
 ]
 }

@@ -14,7 +14,7 @@ export type DropTypes = {
 export const drops7:DropTypes ={
 name:"drops",
  duration: 700,
-  scale: 1,
+  scale: 0.5,
   rotation: 0,
   offsetX: 0,
   offsetY: 0, 

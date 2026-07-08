@@ -17,7 +17,7 @@ export default function TestAnimation() {
   const currentBlob = waterFalling[currentAnimation];
 
   const blob = useMemo(() => {
-    const pts = waterFalling[6].points.map((p) => ({
+    const pts = waterFalling[currentAnimation].points.map((p) => ({
       x: p.x*currentBlob.scale + CENTER_X + currentBlob.offsetX,
       y: p.y*currentBlob.scale + CENTER_Y + currentBlob.offsetY,
     }));
@@ -55,7 +55,15 @@ export default function TestAnimation() {
     return builder.close().build();
   }, [currentBlob]);
 
- 
+ useEffect(() => {
+    const id = setInterval(() => {
+        setCurrentAnimation((prev) =>
+            (prev + 1) % waterFalling.length
+        );
+    }, waterFalling[currentAnimation].duration);
+
+    return () => clearInterval(id);
+}, [currentAnimation])
   return (
     <SafeAreaView
       style={styles.safeArea}
