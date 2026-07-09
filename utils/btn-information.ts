@@ -54,5 +54,8 @@ export const animations: AnimationItem[] = [
     title:"Touch Ripple",
     route:"/touchRipple/touchRipple",
   },
-   
+   {
+    title:"ZTest ",
+    route:"/test/test",
+  },
 ];
