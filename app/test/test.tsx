@@ -7,14 +7,14 @@ import {
   withTiming,
 } from "react-native-reanimated";
 
-import { mPath } from "@/utils/drawletters/m";
+import { lettersPaths } from "@/utils/drawletters/m";
 
-export default function TestDraw() {
+export default function LettersDraw() {
   const progress = useSharedValue(0);
 
   useEffect(() => {
     progress.value = withTiming(1, {
-      duration: 1500,
+      duration: 2500,
     });
   }, []);
 
@@ -26,9 +26,9 @@ export default function TestDraw() {
       <View style={styles.container}>
         <Canvas style={{ flex: 1 }}>
           <Path
-            path={mPath()}
+            path={lettersPaths()}
             style="stroke"
-            color="black"
+            color="#04ac1a"
             strokeWidth={8}
             start={0}
             end={progress}
